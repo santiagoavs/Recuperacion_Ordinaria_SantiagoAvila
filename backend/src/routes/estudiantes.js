@@ -2,10 +2,14 @@ const express = require('express');
 const router = express.Router();
 const Estudiante = require('../models/Estudiante');
 
-// Obtener todos
 router.get('/', async (req, res) => {
-  const estudiantes = await Estudiante.find();
-  res.json(estudiantes);
+  try {
+    const estudiantes = await Estudiante.find();
+    console.log(estudiantes);
+    res.json(estudiantes);
+  } catch (err) {
+    res.status(500).json({ error: 'Error al obtener estudiantes' });
+  }
 });
 
 // Crear

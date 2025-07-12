@@ -5,7 +5,7 @@ const estudianteSchema = new mongoose.Schema({
   nombre: String,
   apellido: String,
   grado: String,
-  estado: String,
-});
+  estado: String
+}, { collection: 'estudiantes' }); 
 
 module.exports = mongoose.model('Estudiante', estudianteSchema);
